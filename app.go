@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"math"
 )
+import "first-app/profitCalculator"
 
 func main() {
 	/* Normal way to declare variables
@@ -16,14 +17,22 @@ func main() {
 
 	/* Most preferred syntax for declaring variables */
   const inflationRate = 2.5
-	investmentAmount := 1000.0
+	var investmentAmount, years float64
 	expectedReturnRate := 5.5
-	years := 10.0
 
+  fmt.Print("Enter InvestmentAmount: ")
   fmt.Scan(&investmentAmount)
+
+  fmt.Print("Enter expectedReturnRate: ")
+  fmt.Scan(&expectedReturnRate)
+
+  fmt.Print("Enter no.of Years: ")
+  fmt.Scan(&years)
+
 	var futureValue float64 = investmentAmount * math.Pow(1+expectedReturnRate/100, years)
   futureRealValue := futureValue/math.Pow(1+inflationRate/100, years)
 
 	fmt.Println("FutureValue is: ", futureValue)
   fmt.Println("FutureRealValue is: ", futureRealValue)
+  profitCalculator.InitializeProfitCalculator()
 }
