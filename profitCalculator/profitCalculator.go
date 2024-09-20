@@ -20,7 +20,8 @@ func InitializeProfitCalculator() {
   profit := earningBeforeTax * (1-taxRate/100)
   ratio := earningBeforeTax/profit
 
-  fmt.Println("Earning Before Tax is: ", earningBeforeTax)
-  fmt.Println("Profit After Tax is: ", profit)
-  fmt.Println("Ratio is: ", ratio)
+  //fmt.Println("Earning Before Tax is: ", earningBeforeTax)
+  //fmt.Println("Profit After Tax is: ", profit)
+  //fmt.Println("Ratio is: ", ratio)
+  fmt.Printf("Earnings before Tax is: %v\nProfit after Tax is: %v\nRatio is: %v", earningBeforeTax, profit, ratio)
 }

@@ -1,9 +1,9 @@
 package main
 
-import (
+/*import (
 	"fmt"
 	"math"
-)
+)*/
 import "first-app/profitCalculator"
 
 func main() {
@@ -16,7 +16,7 @@ func main() {
 	investmentAmount, years, expectedReturnRate := 1000.0, 10.0, 5.5 */
 
 	/* Most preferred syntax for declaring variables */
-  const inflationRate = 2.5
+  /* const inflationRate = 2.5
 	var investmentAmount, years float64
 	expectedReturnRate := 5.5
 
@@ -33,6 +33,6 @@ func main() {
   futureRealValue := futureValue/math.Pow(1+inflationRate/100, years)
 
 	fmt.Println("FutureValue is: ", futureValue)
-  fmt.Println("FutureRealValue is: ", futureRealValue)
+  fmt.Println("FutureRealValue is: ", futureRealValue)*/
   profitCalculator.InitializeProfitCalculator()
 }
