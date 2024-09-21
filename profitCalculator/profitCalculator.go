@@ -23,5 +23,9 @@ func InitializeProfitCalculator() {
   //fmt.Println("Earning Before Tax is: ", earningBeforeTax)
   //fmt.Println("Profit After Tax is: ", profit)
   //fmt.Println("Ratio is: ", ratio)
-  fmt.Printf("Earnings before Tax is: %v\nProfit after Tax is: %v\nRatio is: %v", earningBeforeTax, profit, ratio)
+  // fmt.Printf("Earnings before Tax is: %.2f\nProfit after Tax is: %.2f\nRatio is: %.2f", earningBeforeTax, profit, ratio)
+  earningBeforeTaxFV := fmt.Sprintf("Earnings before Tax is: %.2f\n", earningBeforeTax)
+  profitFV := fmt.Sprintf("Profit after Tax is: %.2f\n", profit)
+  ratioFV := fmt.Sprintf("Ratio is: %.2f", ratio)
+  print(earningBeforeTaxFV, profitFV, ratioFV)
 }
