@@ -28,4 +28,6 @@ func InitializeProfitCalculator() {
   profitFV := fmt.Sprintf("Profit after Tax is: %.2f\n", profit)
   ratioFV := fmt.Sprintf("Ratio is: %.2f", ratio)
   print(earningBeforeTaxFV, profitFV, ratioFV)
+  print(`This is the line break statement\n
+  Second Line`)
 }
