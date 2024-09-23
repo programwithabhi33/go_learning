@@ -34,9 +34,10 @@ func InitializeProfitCalculator() {
 func outputText(text string) {
 	print(text)
 }
-func calculateEarningProfitAndRatio(revenue, expense, taxRate float64)(float64, float64, float64){
-	earningBeforeTax := revenue - expense
-	profit := earningBeforeTax * (1 - taxRate/100)
-	ratio := earningBeforeTax / profit
-  return earningBeforeTax, profit, ratio
+func calculateEarningProfitAndRatio(revenue, expense, taxRate float64)(earningBeforeTax float64, profit float64, ratio float64){
+	earningBeforeTax = revenue - expense
+	profit = earningBeforeTax * (1 - taxRate/100)
+	ratio = earningBeforeTax / profit
+  //return earningBeforeTax, profit, ratio
+  return 
 }
