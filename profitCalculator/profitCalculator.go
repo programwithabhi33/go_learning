@@ -15,10 +15,7 @@ func InitializeProfitCalculator() {
 
 	outputText("Enter Tax Rate: ")
 	fmt.Scan(&taxRate)
-
-	earningBeforeTax := revenue - expense
-	profit := earningBeforeTax * (1 - taxRate/100)
-	ratio := earningBeforeTax / profit
+  earningBeforeTax, profit, ratio := calculateEarningProfitAndRatio(revenue, expense, taxRate)
 
 	//fmt.Println("Earning Before Tax is: ", earningBeforeTax)
 	//fmt.Println("Profit After Tax is: ", profit)
@@ -36,4 +33,10 @@ func InitializeProfitCalculator() {
 // custom function
 func outputText(text string) {
 	print(text)
+}
+func calculateEarningProfitAndRatio(revenue, expense, taxRate float64)(float64, float64, float64){
+	earningBeforeTax := revenue - expense
+	profit := earningBeforeTax * (1 - taxRate/100)
+	ratio := earningBeforeTax / profit
+  return earningBeforeTax, profit, ratio
 }
