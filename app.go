@@ -4,7 +4,8 @@ package main
 	"fmt"
 	"math"
 )*/
-import "first-app/profitCalculator"
+//import "first-app/profitCalculator"
+import "first-app/basicFinancial"
 
 func main() {
 	//Normal way to declare variables
@@ -34,5 +35,6 @@ func main() {
 
 	fmt.Println("FutureValue is: ", futureValue)
   fmt.Println("FutureRealValue is: ", futureRealValue)*/
-  profitCalculator.InitializeProfitCalculator()
+  //profitCalculator.InitializeProfitCalculator()
+  basicFinancial.ShowChoices()
 }
