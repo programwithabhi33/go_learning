@@ -4,9 +4,9 @@ import "fmt"
 
 func ShowChoices() {
 	accountBalance := 1000.0
+	fmt.Println("Welcome to basic financial application!")
 	for i := 0; i < 2; i++ {
 		var choice int
-		fmt.Println("Welcome to basic financial application!")
 		fmt.Println("What do you want to do!")
 		fmt.Println("1. Check balance")
 		fmt.Println("2. Deposit")
@@ -25,7 +25,7 @@ func ShowChoices() {
 
 			if depositAmount <= 0 {
 				fmt.Println("Invalid amount, the deposit amount should be greater than 0")
-				return
+				continue
 			}
 			accountBalance += depositAmount
 			fmt.Println("Balance updated!, New account balance is:", accountBalance)
@@ -37,16 +37,18 @@ func ShowChoices() {
 
 			if withdrawalAmount <= 0 {
 				fmt.Println("Invalid amount, the withdrawal amount should be greater than 0")
-				return
+				continue
 			}
 			if withdrawalAmount > accountBalance {
 				fmt.Println("Invalid amount, you can't withdraw amount greater than you have in your account!")
-				return
+				continue
 			}
 			accountBalance -= withdrawalAmount
 			fmt.Println("Withdraw successfull!, New balance is:", accountBalance)
 		} else {
 			fmt.Println("You choose to exit from application!")
+			break
 		}
 	}
+	fmt.Println("Thanks for using our financial application")
 }
