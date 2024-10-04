@@ -5,7 +5,7 @@ import "fmt"
 func ShowChoices() {
 	accountBalance := 1000.0
 	fmt.Println("Welcome to basic financial application!")
-	for i := 0; i < 2; i++ {
+	for {
 		var choice int
 		fmt.Println("What do you want to do!")
 		fmt.Println("1. Check balance")
