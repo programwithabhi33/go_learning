@@ -1,6 +1,12 @@
 package basicFinancial
 
 import "fmt"
+import "os"
+
+func storeBalanceInFile(balance float64){
+  balanceText := fmt.Sprint(balance)
+  os.WriteFile("./balance.txt", []byte(balanceText), 0644)
+}
 
 func ShowChoices() {
 	accountBalance := 1000.0
@@ -64,6 +70,7 @@ func ShowChoices() {
 			}
 			accountBalance += depositAmount
 			fmt.Println("Balance updated!, New account balance is:", accountBalance)
+      storeBalanceInFile(accountBalance)
 		case 3:
 			var withdrawalAmount float64
 			fmt.Println("Withdrawal amount:")
@@ -79,6 +86,7 @@ func ShowChoices() {
 			}
 			accountBalance -= withdrawalAmount
 			fmt.Println("Withdraw successfull!, New balance is:", accountBalance)
+      storeBalanceInFile(accountBalance)
 		default:
 			fmt.Println("You choose to exit from application!")
 			fmt.Println("Thanks for using our financial application")
