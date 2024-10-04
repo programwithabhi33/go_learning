@@ -5,16 +5,17 @@ import (
 	"os"
 	"strconv"
 )
+const accountBalanceFileName = "balance.txt"
 
 func getBalanceFromFile() float64 {
-	balanceFromFile, _ := os.ReadFile("balance.txt")
+	balanceFromFile, _ := os.ReadFile(accountBalanceFileName)
 	balanceTextString := string(balanceFromFile)
 	balanceFloatValue, _ := strconv.ParseFloat(balanceTextString, 64)
 	return balanceFloatValue
 }
 func storeBalanceInFile(balance float64) {
 	balanceText := fmt.Sprint(balance)
-	os.WriteFile("./balance.txt", []byte(balanceText), 0644)
+	os.WriteFile(accountBalanceFileName, []byte(balanceText), 0644)
 }
 
 func ShowChoices() {
