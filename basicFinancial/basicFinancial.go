@@ -1,17 +1,26 @@
 package basicFinancial
 
 import (
+	"errors"
 	"fmt"
 	"os"
 	"strconv"
 )
 const accountBalanceFileName = "balance.txt"
 
-func getBalanceFromFile() float64 {
-	balanceFromFile, _ := os.ReadFile(accountBalanceFileName)
+func getBalanceFromFile() (float64, error) {
+	balanceFromFile, err := os.ReadFile(accountBalanceFileName)
+  if err != nil {
+    return 1000, errors.New("Failed to find balance file")
+  }
+
 	balanceTextString := string(balanceFromFile)
 	balanceFloatValue, _ := strconv.ParseFloat(balanceTextString, 64)
-	return balanceFloatValue
+  if err != nil {
+    return 1000, errors.New("Failed to parse the balance from file")
+  }
+
+	return balanceFloatValue, nil
 }
 func storeBalanceInFile(balance float64) {
 	balanceText := fmt.Sprint(balance)
@@ -19,7 +28,12 @@ func storeBalanceInFile(balance float64) {
 }
 
 func ShowChoices() {
-	accountBalance := getBalanceFromFile() 
+	accountBalance, err := getBalanceFromFile() 
+  if err != nil {
+    fmt.Println("ERROR")
+    fmt.Println(err)
+    fmt.Println("----------------------")
+  }
 	fmt.Println("Welcome to basic financial application!")
 	for {
 		var choice int
