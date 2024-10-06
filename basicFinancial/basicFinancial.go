@@ -33,6 +33,8 @@ func ShowChoices() {
     fmt.Println("ERROR")
     fmt.Println(err)
     fmt.Println("----------------------")
+    //The panic function stops the execution of the program and output the message that passed to it.
+    panic("Something went wrong during the execution of the program")
   }
 	fmt.Println("Welcome to basic financial application!")
 	for {
