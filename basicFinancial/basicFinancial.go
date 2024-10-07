@@ -15,7 +15,7 @@ func getBalanceFromFile() (float64, error) {
   }
 
 	balanceTextString := string(balanceFromFile)
-	balanceFloatValue, _ := strconv.ParseFloat(balanceTextString, 64)
+	balanceFloatValue, err := strconv.ParseFloat(balanceTextString, 64)
   if err != nil {
     return 1000, errors.New("Failed to parse the balance from file")
   }
