@@ -1,0 +1,3 @@
+earningBeforeTax: 100.00
+Profit: 95.00
+Ratio: 1.05
