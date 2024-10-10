@@ -61,9 +61,7 @@ func InitializeProfitCalculator() {
 }
 
 // custom function
-func outputText(text string) {
-	print(text)
-}
+
 func getUserInput() (float64, error) {
 	var userInput float64
 	fmt.Scan(&userInput)
