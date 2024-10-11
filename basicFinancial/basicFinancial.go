@@ -1,34 +1,13 @@
 package basicFinancial
 
 import (
-	"errors"
 	"fmt"
-	"os"
-	"strconv"
+  "first-app/fileops"
 )
 const accountBalanceFileName = "balance.txt"
 
-func getFloatValueFromFile(fileName string) (float64, error) {
-	valueFromFile, err := os.ReadFile(fileName)
-  if err != nil {
-    return 1000, errors.New("Failed to find file")
-  }
-
-	valueTextString := string(valueFromFile)
-	valueFloatValue, err := strconv.ParseFloat(valueTextString, 64)
-  if err != nil {
-    return 1000, errors.New("Failed to parse the value from file")
-  }
-
-	return valueFloatValue, nil
-}
-func storeFloatValueInfile(value float64, fileName string) {
-	valueText := fmt.Sprint(value)
-	os.WriteFile(fileName, []byte(valueText), 0644)
-}
-
 func ShowChoices() {
-	accountBalance, err := getFloatValueFromFile(accountBalanceFileName) 
+	accountBalance, err := fileops.GetFloatValueFromFile(accountBalanceFileName) 
   if err != nil {
     fmt.Println("ERROR")
     fmt.Println(err)
@@ -97,7 +76,7 @@ func ShowChoices() {
 			}
 			accountBalance += depositAmount
 			fmt.Println("Balance updated!, New account balance is:", accountBalance)
-			storeFloatValueInfile(accountBalance, accountBalanceFileName)
+			fileops.StoreFloatValueInfile(accountBalance, accountBalanceFileName)
 		case 3:
 			var withdrawalAmount float64
 			fmt.Println("Withdrawal amount:")
@@ -113,7 +92,7 @@ func ShowChoices() {
 			}
 			accountBalance -= withdrawalAmount
 			fmt.Println("Withdraw successfull!, New balance is:", accountBalance)
-			storeFloatValueInfile(accountBalance, accountBalanceFileName)
+			fileops.StoreFloatValueInfile(accountBalance, accountBalanceFileName)
 		default:
 			fmt.Println("You choose to exit from application!")
 			fmt.Println("Thanks for using our financial application")
