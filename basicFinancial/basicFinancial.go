@@ -3,6 +3,7 @@ package basicFinancial
 import (
 	"fmt"
   "first-app/fileops"
+  "github.com/Pallinder/go-randomdata"
 )
 const accountBalanceFileName = "balance.txt"
 
@@ -17,6 +18,7 @@ func ShowChoices() {
     panic("Something went wrong during the execution of the program")
   }
 	fmt.Println("Welcome to basic financial application!")
+	fmt.Println("Customer support", randomdata.PhoneNumber())
 	for {
 		var choice int
 		fmt.Println("What do you want to do!")
