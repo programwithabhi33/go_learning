@@ -8,31 +8,32 @@ import (
 )
 const accountBalanceFileName = "balance.txt"
 
-func getBalanceFromFile() (float64, error) {
-	balanceFromFile, err := os.ReadFile(accountBalanceFileName)
+func getFloatValueFromFile(fileName string) (float64, error) {
+	valueFromFile, err := os.ReadFile(fileName)
   if err != nil {
-    return 1000, errors.New("Failed to find balance file")
+    return 1000, errors.New("Failed to find file")
   }
 
-	balanceTextString := string(balanceFromFile)
-	balanceFloatValue, err := strconv.ParseFloat(balanceTextString, 64)
+	valueTextString := string(valueFromFile)
+	valueFloatValue, err := strconv.ParseFloat(valueTextString, 64)
   if err != nil {
-    return 1000, errors.New("Failed to parse the balance from file")
+    return 1000, errors.New("Failed to parse the value from file")
   }
 
-	return balanceFloatValue, nil
+	return valueFloatValue, nil
 }
-func storeBalanceInFile(balance float64) {
-	balanceText := fmt.Sprint(balance)
-	os.WriteFile(accountBalanceFileName, []byte(balanceText), 0644)
+func storeFloatValueInfile(value float64, fileName string) {
+	valueText := fmt.Sprint(value)
+	os.WriteFile(fileName, []byte(valueText), 0644)
 }
 
 func ShowChoices() {
-	accountBalance, err := getBalanceFromFile() 
+	accountBalance, err := getFloatValueFromFile(accountBalanceFileName) 
   if err != nil {
     fmt.Println("ERROR")
     fmt.Println(err)
     fmt.Println("----------------------")
+
     //The panic function stops the execution of the program and output the message that passed to it.
     panic("Something went wrong during the execution of the program")
   }
@@ -96,7 +97,7 @@ func ShowChoices() {
 			}
 			accountBalance += depositAmount
 			fmt.Println("Balance updated!, New account balance is:", accountBalance)
-			storeBalanceInFile(accountBalance)
+			storeFloatValueInfile(accountBalance, accountBalanceFileName)
 		case 3:
 			var withdrawalAmount float64
 			fmt.Println("Withdrawal amount:")
@@ -112,7 +113,7 @@ func ShowChoices() {
 			}
 			accountBalance -= withdrawalAmount
 			fmt.Println("Withdraw successfull!, New balance is:", accountBalance)
-			storeBalanceInFile(accountBalance)
+			storeFloatValueInfile(accountBalance, accountBalanceFileName)
 		default:
 			fmt.Println("You choose to exit from application!")
 			fmt.Println("Thanks for using our financial application")
