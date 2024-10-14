@@ -5,7 +5,8 @@ package main
 	"math"
 )*/
 //import "first-app/profitCalculator"
-import "first-app/basicFinancial"
+//import "first-app/basicFinancial"
+import "first-app/pointer"
 
 func main() {
 	//Normal way to declare variables
@@ -17,24 +18,25 @@ func main() {
 	investmentAmount, years, expectedReturnRate := 1000.0, 10.0, 5.5 */
 
 	/* Most preferred syntax for declaring variables */
-  /*const inflationRate = 2.5
-  var investmentAmount, years float64
-	expectedReturnRate := 5.5
+	/*const inflationRate = 2.5
+	  var investmentAmount, years float64
+		expectedReturnRate := 5.5
 
-  fmt.Print("Enter InvestmentAmount: ")
-  fmt.Scan(&investmentAmount)
+	  fmt.Print("Enter InvestmentAmount: ")
+	  fmt.Scan(&investmentAmount)
 
-  fmt.Print("Enter expectedReturnRate: ")
-  fmt.Scan(&expectedReturnRate)
+	  fmt.Print("Enter expectedReturnRate: ")
+	  fmt.Scan(&expectedReturnRate)
 
-  fmt.Print("Enter no.of Years: ")
-  fmt.Scan(&years)
+	  fmt.Print("Enter no.of Years: ")
+	  fmt.Scan(&years)
 
-	var futureValue float64 = investmentAmount * math.Pow(1+expectedReturnRate/100, years)
-  futureRealValue := futureValue/math.Pow(1+inflationRate/100, years)
+		var futureValue float64 = investmentAmount * math.Pow(1+expectedReturnRate/100, years)
+	  futureRealValue := futureValue/math.Pow(1+inflationRate/100, years)
 
-	fmt.Println("FutureValue is: ", futureValue)
-  fmt.Println("FutureRealValue is: ", futureRealValue)*/
-  //profitCalculator.InitializeProfitCalculator()
-  basicFinancial.ShowChoices()
+		fmt.Println("FutureValue is: ", futureValue)
+	  fmt.Println("FutureRealValue is: ", futureRealValue)*/
+	//profitCalculator.InitializeProfitCalculator()
+	// basicFinancial.ShowChoices()
+  pointer.PointerMainFunction()
 }
