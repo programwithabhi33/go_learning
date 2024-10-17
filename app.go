@@ -6,7 +6,8 @@ package main
 )*/
 //import "first-app/profitCalculator"
 //import "first-app/basicFinancial"
-import "first-app/pointer"
+//import "first-app/pointer"
+import "first-app/struct"
 
 func main() {
 	//Normal way to declare variables
@@ -38,5 +39,6 @@ func main() {
 	  fmt.Println("FutureRealValue is: ", futureRealValue)*/
 	//profitCalculator.InitializeProfitCalculator()
 	// basicFinancial.ShowChoices()
-  pointer.PointerMainFunction()
+  //pointer.PointerMainFunction()
+  structType.StructMainFn()
 }
