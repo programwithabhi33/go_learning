@@ -12,10 +12,15 @@ func PointerMainFunction(){
 
   fmt.Println("Value stored in age pointer is:", *agePointer)
   //fmt.Println("Another pointer is:", anotherPointer)
-  adultYears := getAdultYears(agePointer)
-  fmt.Println("Adult years is", adultYears)
+  //adultYears := getAdultYears(agePointer)
+  //fmt.Println("Adult years is", adultYears)
+  editAgeToAdultYears(agePointer)
+  fmt.Println("Adult years is", age)
 }
 
 func getAdultYears(pointer *int) int {
   return *pointer - 18
+}
+func editAgeToAdultYears(pointer *int){
+  *pointer = *pointer - 18
 }
