@@ -36,6 +36,11 @@ func outputTextAndReturnUserInput(outputText string) string {
 }
 
 func outputProgrammerDetails(user *programmer){
+  //You access like this as well
+  //user.firstName
+  //But the technically correct to access the methods and properties on a struct pointer is
+  //(*[STRUCT_POINTER]).[FIELD_NAME] in this case e.g,. (*user).firstName
+
   fmt.Println("programmer first name is:", user.firstName)
   fmt.Println("programmer last name is:", user.lastName)
   fmt.Println("programmer last age is:", user.age)
