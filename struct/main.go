@@ -25,7 +25,7 @@ func StructMainFn() {
 		hobby:                        userInputHobby,
 		favouriteProgrammingLanguage: userInputFavouriteProgrammingLanguage,
 	}
-  outputProgrammerDetails(programmerData)
+  outputProgrammerDetails(&programmerData)
 }
 
 func outputTextAndReturnUserInput(outputText string) string {
@@ -35,7 +35,7 @@ func outputTextAndReturnUserInput(outputText string) string {
 	return userInput
 }
 
-func outputProgrammerDetails(user programmer){
+func outputProgrammerDetails(user *programmer){
   fmt.Println("programmer first name is:", user.firstName)
   fmt.Println("programmer last name is:", user.lastName)
   fmt.Println("programmer last age is:", user.age)
