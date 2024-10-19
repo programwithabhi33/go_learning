@@ -25,7 +25,7 @@ func StructMainFn() {
 		hobby:                        userInputHobby,
 		favouriteProgrammingLanguage: userInputFavouriteProgrammingLanguage,
 	}
-  outputProgrammerDetails(&programmerData)
+  programmerData.outputProgrammerDetails()
 }
 
 func outputTextAndReturnUserInput(outputText string) string {
@@ -35,7 +35,7 @@ func outputTextAndReturnUserInput(outputText string) string {
 	return userInput
 }
 
-func outputProgrammerDetails(user *programmer){
+func (user programmer) outputProgrammerDetails(){
   //You access like this as well
   //user.firstName
   //But the technically correct to access the methods and properties on a struct pointer is
