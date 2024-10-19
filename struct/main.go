@@ -26,6 +26,8 @@ func StructMainFn() {
 		favouriteProgrammingLanguage: userInputFavouriteProgrammingLanguage,
 	}
   programmerData.outputProgrammerDetails()
+  programmerData.clearProgrammerName()
+  programmerData.outputProgrammerDetails()
 }
 
 func outputTextAndReturnUserInput(outputText string) string {
@@ -46,4 +48,8 @@ func (user programmer) outputProgrammerDetails(){
   fmt.Println("programmer last age is:", user.age)
   fmt.Println("programmer last hobby is:", user.hobby)
   fmt.Println("programmer favourite language is:", user.favouriteProgrammingLanguage)
+}
+func (user *programmer) clearProgrammerName(){
+  user.firstName = ""
+  user.lastName = ""
 }
