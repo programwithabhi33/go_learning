@@ -10,8 +10,8 @@ type programmer struct {
 	favouriteProgrammingLanguage string
 }
 
-func newProgrammer(userInputFirstName, userInputLastName, userInputAge, userInputHobby, userInputFavouriteProgrammingLanguage string) programmer {
-	return programmer{
+func newProgrammer(userInputFirstName, userInputLastName, userInputAge, userInputHobby, userInputFavouriteProgrammingLanguage string) *programmer {
+	return &programmer{
 		firstName:                    userInputFirstName,
 		lastName:                     userInputLastName,
 		age:                          userInputAge,
@@ -27,7 +27,7 @@ func StructMainFn() {
 	userInputHobby := outputTextAndReturnUserInput("Enter your hobby")
 	userInputFavouriteProgrammingLanguage := outputTextAndReturnUserInput("Enter your favourite programming language")
 
-	var programmerData programmer
+	var programmerData *programmer
 	programmerData = newProgrammer(userInputFirstName, userInputLastName, userInputAge, userInputHobby, userInputFavouriteProgrammingLanguage)
 
 	programmerData.outputProgrammerDetails()
