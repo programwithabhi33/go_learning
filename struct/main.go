@@ -1,6 +1,9 @@
 package structType
 
-import "fmt"
+import (
+	"errors"
+	"fmt"
+)
 
 type programmer struct {
 	firstName                    string
@@ -10,14 +13,17 @@ type programmer struct {
 	favouriteProgrammingLanguage string
 }
 
-func newProgrammer(userInputFirstName, userInputLastName, userInputAge, userInputHobby, userInputFavouriteProgrammingLanguage string) *programmer {
+func newProgrammer(userInputFirstName, userInputLastName, userInputAge, userInputHobby, userInputFavouriteProgrammingLanguage string) (*programmer, error) {
+	if userInputFirstName == "" || userInputLastName == "" || userInputAge == "" {
+		return nil, errors.New("Firstname, Lastname or Age should not be empty")
+	}
 	return &programmer{
 		firstName:                    userInputFirstName,
 		lastName:                     userInputLastName,
 		age:                          userInputAge,
 		hobby:                        userInputHobby,
 		favouriteProgrammingLanguage: userInputFavouriteProgrammingLanguage,
-	}
+	}, nil
 }
 
 func StructMainFn() {
@@ -28,7 +34,11 @@ func StructMainFn() {
 	userInputFavouriteProgrammingLanguage := outputTextAndReturnUserInput("Enter your favourite programming language")
 
 	var programmerData *programmer
-	programmerData = newProgrammer(userInputFirstName, userInputLastName, userInputAge, userInputHobby, userInputFavouriteProgrammingLanguage)
+	programmerData, err := newProgrammer(userInputFirstName, userInputLastName, userInputAge, userInputHobby, userInputFavouriteProgrammingLanguage)
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
 
 	programmerData.outputProgrammerDetails()
 	programmerData.clearProgrammerName()
@@ -38,7 +48,7 @@ func StructMainFn() {
 func outputTextAndReturnUserInput(outputText string) string {
 	fmt.Println(outputText)
 	var userInput string
-	fmt.Scan(&userInput)
+	fmt.Scanln(&userInput)
 	return userInput
 }
 
