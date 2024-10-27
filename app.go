@@ -43,9 +43,21 @@ func main() {
 	//profitCalculator.InitializeProfitCalculator()
 	// basicFinancial.ShowChoices()
   //pointer.PointerMainFunction()
-  //structType.StructMainFn()
-  sampleProgrammer := &structType.Programmer{
-    FirstName: "John",
-  }
-  fmt.Println("sampleProgrammer:", sampleProgrammer.FirstName)
+
+	userInputFirstName := structType.OutputTextAndReturnUserInput("Enter first name")
+	userInputLastName := structType.OutputTextAndReturnUserInput("Enter last name")
+	userInputAge := structType.OutputTextAndReturnUserInput("Enter your age")
+	userInputHobby := structType.OutputTextAndReturnUserInput("Enter your hobby")
+	userInputFavouriteProgrammingLanguage := structType.OutputTextAndReturnUserInput("Enter your favourite programming language")
+
+	var programmerData *structType.Programmer
+	programmerData, err := structType.New(userInputFirstName, userInputLastName, userInputAge, userInputHobby, userInputFavouriteProgrammingLanguage)
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+
+	programmerData.OutputProgrammerDetails()
+	programmerData.ClearProgrammerName()
+	programmerData.OutputProgrammerDetails()
 }
