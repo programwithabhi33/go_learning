@@ -5,20 +5,20 @@ import (
 	"fmt"
 )
 
-type programmer struct {
-	firstName                    string
+type Programmer struct {
+	FirstName                    string
 	lastName                     string
 	age                          string
 	hobby                        string
 	favouriteProgrammingLanguage string
 }
 
-func newProgrammer(userInputFirstName, userInputLastName, userInputAge, userInputHobby, userInputFavouriteProgrammingLanguage string) (*programmer, error) {
+func newProgrammer(userInputFirstName, userInputLastName, userInputAge, userInputHobby, userInputFavouriteProgrammingLanguage string) (*Programmer, error) {
 	if userInputFirstName == "" || userInputLastName == "" || userInputAge == "" {
 		return nil, errors.New("Firstname, Lastname or Age should not be empty")
 	}
-	return &programmer{
-		firstName:                    userInputFirstName,
+	return &Programmer{
+		FirstName:                    userInputFirstName,
 		lastName:                     userInputLastName,
 		age:                          userInputAge,
 		hobby:                        userInputHobby,
@@ -33,7 +33,7 @@ func StructMainFn() {
 	userInputHobby := outputTextAndReturnUserInput("Enter your hobby")
 	userInputFavouriteProgrammingLanguage := outputTextAndReturnUserInput("Enter your favourite programming language")
 
-	var programmerData *programmer
+	var programmerData *Programmer
 	programmerData, err := newProgrammer(userInputFirstName, userInputLastName, userInputAge, userInputHobby, userInputFavouriteProgrammingLanguage)
 	if err != nil {
 		fmt.Println(err)
@@ -52,19 +52,19 @@ func outputTextAndReturnUserInput(outputText string) string {
 	return userInput
 }
 
-func (user programmer) outputProgrammerDetails() {
+func (user Programmer) outputProgrammerDetails() {
 	//You access like this as well
 	//user.firstName
 	//But the technically correct to access the methods and properties on a struct pointer is
 	//(*[STRUCT_POINTER]).[FIELD_NAME] in this case e.g,. (*user).firstName
 
-	fmt.Println("programmer first name is:", user.firstName)
+	fmt.Println("programmer first name is:", user.FirstName)
 	fmt.Println("programmer last name is:", user.lastName)
 	fmt.Println("programmer last age is:", user.age)
 	fmt.Println("programmer last hobby is:", user.hobby)
 	fmt.Println("programmer favourite language is:", user.favouriteProgrammingLanguage)
 }
-func (user *programmer) clearProgrammerName() {
-	user.firstName = ""
+func (user *Programmer) clearProgrammerName() {
+	user.FirstName = ""
 	user.lastName = ""
 }

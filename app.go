@@ -7,7 +7,10 @@ package main
 //import "first-app/profitCalculator"
 //import "first-app/basicFinancial"
 //import "first-app/pointer"
-import "first-app/struct"
+import (
+	"first-app/struct"
+	"fmt"
+)
 
 func main() {
 	//Normal way to declare variables
@@ -40,5 +43,9 @@ func main() {
 	//profitCalculator.InitializeProfitCalculator()
 	// basicFinancial.ShowChoices()
   //pointer.PointerMainFunction()
-  structType.StructMainFn()
+  //structType.StructMainFn()
+  sampleProgrammer := &structType.Programmer{
+    FirstName: "John",
+  }
+  fmt.Println("sampleProgrammer:", sampleProgrammer.FirstName)
 }
