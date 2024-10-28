@@ -9,7 +9,7 @@ package main
 //import "first-app/pointer"
 import (
 	"first-app/struct"
-	"fmt"
+	//"fmt"
 )
 
 func main() {
@@ -42,9 +42,9 @@ func main() {
 	  fmt.Println("FutureRealValue is: ", futureRealValue)*/
 	//profitCalculator.InitializeProfitCalculator()
 	// basicFinancial.ShowChoices()
-  //pointer.PointerMainFunction()
+	//pointer.PointerMainFunction()
 
-	userInputFirstName := structType.OutputTextAndReturnUserInput("Enter first name")
+	/*userInputFirstName := structType.OutputTextAndReturnUserInput("Enter first name")
 	userInputLastName := structType.OutputTextAndReturnUserInput("Enter last name")
 	userInputAge := structType.OutputTextAndReturnUserInput("Enter your age")
 	userInputHobby := structType.OutputTextAndReturnUserInput("Enter your hobby")
@@ -59,5 +59,8 @@ func main() {
 
 	programmerData.OutputProgrammerDetails()
 	programmerData.ClearProgrammerName()
-	programmerData.OutputProgrammerDetails()
+	programmerData.OutputProgrammerDetails()*/
+  
+  admin := structType.NewAdmin("admin@admin.com", "admin@123")
+  admin.OutputProgrammerDetails()
 }

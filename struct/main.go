@@ -12,6 +12,23 @@ type Programmer struct {
 	hobby                        string
 	favouriteProgrammingLanguage string
 }
+type Admin struct {
+  username string
+  password string
+  Programmer
+}
+
+func NewAdmin(username, password string) Admin{
+  return Admin{
+    username: username,
+    password: password,
+    Programmer: Programmer{
+      firstName: "ADMIN",
+      lastName: "ADMIN",
+      age: "---",
+    },
+  }
+}
 
 func New(userInputFirstName, userInputLastName, userInputAge, userInputHobby, userInputFavouriteProgrammingLanguage string) (*Programmer, error) {
 	if userInputFirstName == "" || userInputLastName == "" || userInputAge == "" {
