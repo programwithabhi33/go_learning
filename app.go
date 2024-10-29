@@ -8,7 +8,8 @@ package main
 //import "first-app/basicFinancial"
 //import "first-app/pointer"
 import (
-	"first-app/struct"
+	//"first-app/struct"
+	"first-app/customType"
 	//"fmt"
 )
 
@@ -61,6 +62,8 @@ func main() {
 	programmerData.ClearProgrammerName()
 	programmerData.OutputProgrammerDetails()*/
   
-  admin := structType.NewAdmin("admin@admin.com", "admin@123")
-  admin.OutputProgrammerDetails()
+  /*admin := structType.NewAdmin("admin@admin.com", "admin@123")
+  admin.OutputProgrammerDetails()*/
+
+  customType.CustomTypeMainFn()
 }
